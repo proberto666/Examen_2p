@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Examen_2p.Data
 {
-    class SQLiteDatabase
+    public class SQLiteDatabase
     {
         static readonly Lazy<SQLiteAsyncConnection> lazyInitializer = new Lazy<SQLiteAsyncConnection>(() => {
             return new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Examen_2p.Converters
 {
-    class ImageConverter
+    public class ImageConverter
     {
     }
 }
