@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:Examen_2p.Converters"
+             xmlns:triggers="clr-namespace:Examen_2p.Triggers"
+             x:Class="Examen_2p.Views.GasDetailPage"
+             Title="Detalle de la Gasolinera">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Eliminar"
+            Command="{Binding DeleteCommand}"/>
+        <ToolbarItem
+            Text="Guardar"
+            Command="{Binding SaveCommand}"/>
+        <ToolbarItem 
+            Text="Mapa" 
+            Command="{Binding MapCommand}" />
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="ImageConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Entry 
+                Placeholder="Marca" 
+                Text="{Binding GasSelected.Marca}"/>
+                <Entry 
+                Placeholder="Sucursal" 
+                Text="{Binding GasSelected.Sucursal}"/>
+                
+                <Entry 
+                Placeholder="Gasolina Roja" 
+                Keyboard="Numeric" 
+                Text="{Binding GasSelected.GasRojo}">
+                    <Entry.Triggers>
+                        <EventTrigger
+                        Event="TextChanged">
+                            <triggers:PrecioTrigger/>
+                        </EventTrigger>
+                    </Entry.Triggers>
+                </Entry>
+                <Stepper
+                Increment="1"
+                Minimum="0"
+                Maximum="100"
+                Value="{Binding GasSelected.GasRojo}"/>
+
+                <Entry 
+                Placeholder="Gasolina Verde" 
+                Keyboard="Numeric" 
+                Text="{Binding GasSelected.GasVerde}">
+                    <Entry.Triggers>
+                        <EventTrigger
+                        Event="TextChanged">
+                            <triggers:PrecioTrigger/>
+                        </EventTrigger>
+                    </Entry.Triggers>
+                </Entry>
+                <Stepper
+                Increment="1"
+                Minimum="0"
+                Maximum="100"
+                Value="{Binding GasSelected.GasVerde}"/>
+
+                <Entry 
+                Placeholder="Diesel" 
+                Keyboard="Numeric" 
+                Text="{Binding GasSelected.Diesel}">
+                    <Entry.Triggers>
+                        <EventTrigger
+                        Event="TextChanged">
+                            <triggers:PrecioTrigger/>
+                        </EventTrigger>
+                    </Entry.Triggers>
+                </Entry>
+                <Stepper
+                Increment="1"
+                Minimum="0"
+                Maximum="100"
+                Value="{Binding GasSelected.Diesel}"/>
+
+                <Entry
+                Placeholder="Latitud"
+                Text="{Binding GasSelected.Latitud}"/>
+                <Entry
+                Placeholder="Longitud"
+                Text="{Binding GasSelected.Longitud}"/>
+                
+                <Button
+                Text="Obtener coordenadas"
+                Command="{Binding GetLocationCommand}"/>
+                <Entry 
+                Placeholder="Url Imagen" 
+                Text="{Binding PetPicture}" />
+                <Image 
+                Source="{Binding PetPicture, Converter = {StaticResource ImageConverters}}" />
+                <Button
+                Text="Tomar fotografía"
+                Command="{Binding TakePictureCommand}"/>
+                <Button
+                Text="Seleccionar fotografía"
+                Command="{Binding SelectPictureCommand}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

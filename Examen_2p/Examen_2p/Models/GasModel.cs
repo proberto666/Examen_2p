@@ -12,7 +12,7 @@ namespace Examen_2p.Models
         public decimal GasVerde { get; set; }
         public decimal GasRojo { get; set; }
         public decimal Diesel { get; set; }
-        public float Latitud { get; set; }
-        public float Longitud { get; set; }
+        public double Latitud { get; set; }
+        public double Longitud { get; set; }
     }
 }

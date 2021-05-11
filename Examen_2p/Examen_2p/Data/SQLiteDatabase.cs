@@ -52,7 +52,7 @@ namespace Examen_2p.Data
             return Connection.Table<GasModel>().Where(i => i.id == id).FirstOrDefaultAsync();
         }
 
-        public Task<int> SaveTaskAsync(GasModel gas)
+        public Task<int> SaveGasAsync(GasModel gas)
         {
             if (gas.id != 0)
             {
@@ -64,7 +64,7 @@ namespace Examen_2p.Data
             }
         }
 
-        public Task<int> DeleteTaskAsync(GasModel gas)
+        public Task<int> DeleteGasAsync(GasModel gas)
         {
             return Connection.DeleteAsync(gas);
         }
