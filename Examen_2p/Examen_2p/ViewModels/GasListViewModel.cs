@@ -35,7 +35,7 @@ namespace Examen_2p.ViewModels
 
         public List<GasModel> Gas
         {
-            get => Gas;
+            get => _Gas;
             set => SetProperty(ref _Gas, value);
         }
 
