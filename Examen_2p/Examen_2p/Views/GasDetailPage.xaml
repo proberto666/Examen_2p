@@ -27,13 +27,16 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
+                <Label Text="Marca:"/>
                 <Entry 
-                Placeholder="Marca" 
+                Placeholder="Ingrese la marca..." 
                 Text="{Binding GasSelected.Marca}"/>
+                <Label Text="Sucursal:"/>
                 <Entry 
-                Placeholder="Sucursal" 
+                Placeholder="Ingrese la sucursal..." 
                 Text="{Binding GasSelected.Sucursal}"/>
                 
+                <Label Text="Precio Gasolina Roja:"/>
                 <Entry 
                 Placeholder="Gasolina Roja" 
                 Keyboard="Numeric" 
@@ -51,6 +54,7 @@
                 Maximum="100"
                 Value="{Binding GasSelected.GasRojo}"/>
 
+                <Label Text="Precio Gasolina Verde:"/>
                 <Entry 
                 Placeholder="Gasolina Verde" 
                 Keyboard="Numeric" 
@@ -68,6 +72,7 @@
                 Maximum="100"
                 Value="{Binding GasSelected.GasVerde}"/>
 
+                <Label Text="Precio Diesel:"/>
                 <Entry 
                 Placeholder="Diesel" 
                 Keyboard="Numeric" 
@@ -95,11 +100,14 @@
                 <Button
                 Text="Obtener coordenadas"
                 Command="{Binding GetLocationCommand}"/>
-                <Entry 
-                Placeholder="Url Imagen" 
-                Text="{Binding PetPicture}" />
+                
                 <Image 
-                Source="{Binding PetPicture, Converter = {StaticResource ImageConverters}}" />
+                Source="{Binding GasSelected.Foto, Converter = {StaticResource ImageConverter}}" />
+
+                <Label Text="URL Imagen:"/>
+                <Entry 
+                Placeholder="Url Imagen"
+                Text="{Binding GasSelected.Foto}"/>
                 <Button
                 Text="Tomar fotografía"
                 Command="{Binding TakePictureCommand}"/>
