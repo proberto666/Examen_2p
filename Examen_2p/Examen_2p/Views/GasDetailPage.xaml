@@ -99,7 +99,7 @@
                 Placeholder="Url Imagen" 
                 Text="{Binding PetPicture}" />
                 <Image 
-                Source="{Binding PetPicture, Converter = {StaticResource ImageConverters}}" />
+                Source="{Binding PetPicture, Converter = {StaticResource ImageConverter}}" />
                 <Button
                 Text="Tomar fotografía"
                 Command="{Binding TakePictureCommand}"/>
