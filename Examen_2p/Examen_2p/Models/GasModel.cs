@@ -3,7 +3,7 @@
 namespace Examen_2p.Models
 {
     [Table("Gasolinera")]
-    class GasModel
+    public class GasModel
     {
         public int id { get; set; }
         public string Marca { get; set; }

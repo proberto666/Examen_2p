@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Globalization;
-using Xamarin.Forms;
-using Examen_2p.Services;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Examen_2p.Converters
 {

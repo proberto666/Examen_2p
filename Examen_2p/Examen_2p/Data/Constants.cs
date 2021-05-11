@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Examen_2p.Data
 {
-    class Constants
+    public class Constants
     {
         //abrir sqlite con permisos readwrite, crea si  no existe y cache compartido
         public const SQLite.SQLiteOpenFlags Flags = SQLite.SQLiteOpenFlags.ReadWrite |
