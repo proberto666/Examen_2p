@@ -1,11 +1,8 @@
 ﻿using Plugin.Media;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 using Examen_2p.Models;
 using Examen_2p.Services;
-using Examen_2p.ViewModels;
 using Xamarin.Essentials;
 using Examen_2p.Views;
 
