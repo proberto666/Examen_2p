@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Examen_2p.ViewModels;
 
 namespace Examen_2p.Views
 {
@@ -15,6 +16,7 @@ namespace Examen_2p.Views
         public GasListPage()
         {
             InitializeComponent();
+            BindingContext = new GasListViewModel();
         }
     }
 }

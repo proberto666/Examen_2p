@@ -1,12 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:converters="clr-namespace:Examen_2p.Converters"
              x:Class="Examen_2p.Views.GasListPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Nuevo" Command="{Binding NewGasCommand}">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="ImageConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+        <ListView Margin="20"
+                  ItemsSource="{Binding Gas}"
+                  SelectedItem="{Binding GasSelected}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout 
+                            Margin="20,0,0,0"
+                            Orientation="Horizontal"
+                            HorizontalOptions="Start">
+                            <Image
+                                Source="{Binding Foto, Converter={StaticResource ImageConverter}}"
+                                HeightRequest="20"
+                                HorizontalOptions="End"/>
+                            <Label
+                                Text="{Binding Marca}"
+                                VerticalOptions="StartAndExpand"
+                                VerticalTextAlignment="Center"/>
+                            <Label
+                                Text="{Binding Sucursal}"
+                                VerticalOptions="StartAndExpand"
+                                VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </ContentPage.Content>
 </ContentPage>
