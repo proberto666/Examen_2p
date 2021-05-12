@@ -26,54 +26,167 @@
 
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
-                <Label Text="Marca:"/>
+            <Grid Padding="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="20*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image 
+                    Source="{Binding GasFoto, Converter = {StaticResource ImageConverter}}"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.RowSpan="2"
+                    Grid.ColumnSpan="4"
+                    MinimumHeightRequest="80"
+                    MinimumWidthRequest="80"
+                    Aspect="AspectFit"
+                    HorizontalOptions="Center"/>
+                <Label 
+                    Text="URL Imagen:"
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Grid.Column="0"
+                    HorizontalOptions="Center"/>
                 <Entry 
-                Placeholder="Ingrese la marca..." 
-                Text="{Binding GasMarca}"/>
-                <Label Text="Sucursal:"/>
+                    Placeholder="Url Imagen" 
+                    Text="{Binding GasFoto}"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    Grid.Column="0"
+                    FontSize="Caption"/>
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="1"
+                    HorizontalOptions="Center"
+                    Text="Tomar fotografía"
+                    Command="{Binding TakePictureCommand}"/>
+                <Button
+                    Grid.Row="4"
+                    Grid.ColumnSpan="1"
+                    Grid.Column="1"
+                    HorizontalOptions="Center"
+                    Text="Seleccionar fotografía"
+                    Command="{Binding SelectPictureCommand}"/>
+                <Entry
+                    Grid.Column="0"
+                    Grid.ColumnSpan="1"
+                    Grid.Row="6"
+                    Placeholder="Latitud"
+                    Text="{Binding GasLatitud}"/>
+                <Entry
+                    Grid.Column="1"
+                    Grid.Row="6"
+                    Grid.ColumnSpan="1"
+                    Placeholder="Longitud"
+                    Text="{Binding GasLongitud}"/>
+                <Button
+                     Grid.Column="0"
+                    Grid.Row="7"
+                    Grid.ColumnSpan="2"
+                    Text="Obtener coordenadas"
+                    Command="{Binding GetLocationCommand}"/>
+
+
+
+                <Label 
+                    Grid.Row="2" 
+                    Grid.Column="2"
+                    Text="Marca:"/>
+                <Entry
+                    Grid.Column="2"
+                    Grid.Row="3"
+                    Placeholder="Ingrese la marca..." 
+                    Text="{Binding GasMarca}"/>
+                <Label 
+                     Grid.Column="2"
+                    Grid.Row="4"
+                    Text="Sucursal:"/>
                 <Entry 
+                     Grid.Column="2"
+                    Grid.Row="5"
                 Placeholder="Ingrese la sucursal..." 
                 Text="{Binding GasSucursal}"/>
                 
-                <Label Text="Precio Gasolina Roja:"/>
-                <Entry 
-                Placeholder="Gasolina Roja" 
-                Keyboard="Numeric" 
-                Text="{Binding GasRojo}">
-                    <Entry.Triggers>
-                        <EventTrigger
-                        Event="TextChanged">
-                            <triggers:PrecioTrigger/>
+                
+                
+                <Label
+                     Grid.Column="3"
+                    Grid.Row="2"
+                    Text="Precio Gasolina Roja:"/>
+                <Entry
+                    Grid.Column="3"
+                    Grid.Row="3"
+                    Placeholder="Gasolina Roja" 
+                    Keyboard="Numeric" 
+                    HorizontalOptions="StartAndExpand"
+                    Text="{Binding GasRojo}">
+                        <Entry.Triggers>
+                            <EventTrigger
+                                Event="TextChanged">
+                                <triggers:PrecioTrigger/>
                         </EventTrigger>
                     </Entry.Triggers>
                 </Entry>
                 <Stepper
-                Increment="1"
-                Minimum="0"
-                Maximum="100"
-                Value="{Binding GasRojo}"/>
+                    Grid.Column="3"
+                    Grid.Row="3"
+                    Increment="1"
+                    HorizontalOptions="Center"
+                    Minimum="0"
+                    Maximum="100"
+                    Value="{Binding GasRojo}"/>
 
-                <Label Text="Precio Gasolina Verde:"/>
-                <Entry 
-                Placeholder="Gasolina Verde" 
-                Keyboard="Numeric" 
-                Text="{Binding GasVerde}">
-                    <Entry.Triggers>
-                        <EventTrigger
-                        Event="TextChanged">
-                            <triggers:PrecioTrigger/>
-                        </EventTrigger>
-                    </Entry.Triggers>
-                </Entry>
+                <Label 
+                    Grid.Column="3"
+                    Grid.Row="4"
+                    Text="Precio Gasolina Verde:"/>
+                <Entry
+                     Grid.Column="3"
+                    Grid.Row="5"
+                    Placeholder="Gasolina Verde" 
+                    Keyboard="Numeric" 
+                    HorizontalOptions="Start"
+                    Text="{Binding GasVerde}">
+                        <Entry.Triggers>
+                            <EventTrigger
+                            Event="TextChanged">
+                                <triggers:PrecioTrigger/>
+                            </EventTrigger>
+                        </Entry.Triggers>
+                 </Entry>
                 <Stepper
-                Increment="1"
-                Minimum="0"
-                Maximum="100"
-                Value="{Binding GasVerde}"/>
+                    Grid.Column="3"
+                    Grid.Row="5"
+                    Increment="1"
+                    Minimum="0"
+                    Maximum="100"
+                    HorizontalOptions="Center"
+                    Value="{Binding GasVerde}"/>
 
-                <Label Text="Precio Diesel:"/>
+                <Label 
+                     Grid.Column="3"
+                    Grid.Row="6"
+                    Text="Precio Diesel:"/>
                 <Entry 
+                     Grid.Column="3"
+                    Grid.Row="7"
+                    HorizontalOptions="Start"
                 Placeholder="Diesel" 
                 Keyboard="Numeric" 
                 Text="{Binding GasDiesel}">
@@ -85,36 +198,18 @@
                     </Entry.Triggers>
                 </Entry>
                 <Stepper
+                     Grid.Column="3"
+                    Grid.Row="7"
+                    HorizontalOptions="Center"
                 Increment="1"
                 Minimum="0"
                 Maximum="100"
                 Value="{Binding GasDiesel}"/>
 
-                <Entry
-                Placeholder="Latitud"
-                Text="{Binding GasLatitud}"/>
-                <Entry
-                Placeholder="Longitud"
-                Text="{Binding GasLongitud}"/>
-                
-                <Button
-                Text="Obtener coordenadas"
-                Command="{Binding GetLocationCommand}"/>
-                
-                <Image 
-                Source="{Binding GasFoto, Converter = {StaticResource ImageConverter}}" />
-
-                <Label Text="URL Imagen:"/>
-                <Entry 
-                Placeholder="Url Imagen" 
-                Text="{Binding GasFoto}" />
-                <Button
-                Text="Tomar fotografía"
-                Command="{Binding TakePictureCommand}"/>
-                <Button
-                Text="Seleccionar fotografía"
-                Command="{Binding SelectPictureCommand}"/>
-            </StackLayout>
+               
+               
+               
+            </Grid>
         </ScrollView>
     </ContentPage.Content>
 

@@ -4,8 +4,7 @@
               xmlns:converters="clr-namespace:Examen_2p.Converters"
              x:Class="Examen_2p.Views.GasListPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Nuevo" Command="{Binding NewGasCommand}">
-        </ToolbarItem>
+        <ToolbarItem Order="Primary" Text="Nuevo" Priority="1" Command="{Binding NewGasCommand}"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>
