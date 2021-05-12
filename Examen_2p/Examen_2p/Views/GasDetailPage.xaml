@@ -108,8 +108,6 @@
                 <Entry 
                 Placeholder="Url Imagen" 
                 Text="{Binding GasFoto}" />
-                <Image 
-                Source="{Binding GasFoto, Converter = {StaticResource ImageConverter}}" />
                 <Button
                 Text="Tomar fotografía"
                 Command="{Binding TakePictureCommand}"/>

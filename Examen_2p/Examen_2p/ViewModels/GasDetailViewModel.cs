@@ -204,7 +204,7 @@ namespace Examen_2p.ViewModels
                 if (file == null)
                     return;
 
-                GasSelected.Foto = imgBase64 = await new ImageService().ConvertImageFilePathToBase64(file.Path);
+                GasFoto = imgBase64 = await new ImageService().ConvertImageFilePathToBase64(file.Path);
             }
             catch (Exception ex)
             {
