@@ -16,33 +16,53 @@
 
     <ContentPage.Content>
 
-        <ListView Margin="20"
-                  ItemsSource="{Binding Gas}"
-                  SelectedItem="{Binding GasSelected}">
-            <ListView.ItemTemplate>
+        <CollectionView 
+            Margin="20"
+            ItemsSource="{Binding Gas}"
+            ItemsLayout="VerticalGrid, 3"
+            SelectionMode="Single"
+            SelectedItem="{Binding GasSelected}">
+            <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <StackLayout 
-                            Margin="20,0,0,0"
-                            Orientation="Horizontal"
-                            HorizontalOptions="Start">
-                            <Image
-                                Source="{Binding Foto, Converter={StaticResource ImageConverter}}"
-                                HeightRequest="20"
-                                HorizontalOptions="End"/>
-                            <Label
-                                Text="{Binding Marca}"
-                                VerticalOptions="StartAndExpand"
-                                VerticalTextAlignment="Center"/>
-                            <Label
-                                Text="{Binding Sucursal}"
-                                VerticalOptions="StartAndExpand"
-                                VerticalTextAlignment="Center"/>
-                        </StackLayout>
-                    </ViewCell>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="120"/>
+                            <RowDefinition Height="120"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="120"/>
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Grid.ColumnSpan="3"
+                            Source="{Binding Foto, Converter={StaticResource ImageConverter}}"
+                            Aspect="AspectFit"
+                            HorizontalOptions="Center"
+                            MinimumHeightRequest="60"
+                            MinimumWidthRequest="60"
+                            />
+                        <Label
+                            Grid.Row="2"
+                            Grid.ColumnSpan="3"
+                            Text="{Binding Marca}"
+                            VerticalTextAlignment="Center"
+                            HorizontalOptions="Center"
+                            FontAttributes="Bold"
+                            FontSize="Medium"/>
+                        <Label
+                            Grid.Row="3"
+                            Grid.ColumnSpan="3"
+                            Text="{Binding Sucursal}"
+                            VerticalTextAlignment="Center"
+                            HorizontalOptions="Center"
+                            VerticalOptions="End"
+                            FontSize="Micro"/>
+                    </Grid>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
     </ContentPage.Content>
 </ContentPage>

@@ -49,12 +49,12 @@ namespace Examen_2p.Data
 
         public Task<GasModel> GetGasAsync(int id)
         {
-            return Connection.Table<GasModel>().Where(i => i.id == id).FirstOrDefaultAsync();
+            return Connection.Table<GasModel>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
 
         public Task<int> SaveGasAsync(GasModel gas)
         {
-            if (gas.id != 0)
+            if (gas.Id != 0)
             {
                 return Connection.UpdateAsync(gas);
             }

@@ -2,7 +2,6 @@
 using System;
 using System.Globalization;
 using Xamarin.Forms;
-using Examen_2p.Services;
 
 namespace Examen_2p.Converters
 {
