@@ -106,8 +106,10 @@
 
                 <Label Text="URL Imagen:"/>
                 <Entry 
-                Placeholder="Url Imagen"
-                Text="{Binding GasSelected.Foto}"/>
+                Placeholder="Url Imagen" 
+                Text="{Binding PetPicture}" />
+                <Image 
+                Source="{Binding PetPicture, Converter = {StaticResource ImageConverter}}" />
                 <Button
                 Text="Tomar fotografía"
                 Command="{Binding TakePictureCommand}"/>
