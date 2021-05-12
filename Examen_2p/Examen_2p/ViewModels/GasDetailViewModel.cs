@@ -35,27 +35,108 @@ namespace Examen_2p.ViewModels
             set => SetProperty(ref imgBase64, value);
         }
 
+        //Encapsulamiento
+        int _GasID;
+
+        string _GasMarca;
+        public string GasMarca
+        {
+            get => _GasMarca;
+            set => SetProperty(ref _GasMarca, value);
+        }
+
+        string _GasSucursal;
+        public string GasSucursal
+        {
+            get => _GasSucursal;
+            set => SetProperty(ref _GasSucursal, value);
+        }
+
+        string _GasFoto;
+        public string GasFoto
+        {
+            get => _GasFoto;
+            set => SetProperty(ref _GasFoto, value);
+        }
+
+        decimal _GasRojo;
+        public decimal GasRojo
+        {
+            get => _GasRojo;
+            set => SetProperty(ref _GasRojo, value);
+        }
+
+        decimal _GasVerde;
+        public decimal GasVerde
+        {
+            get => _GasVerde;
+            set => SetProperty(ref _GasVerde, value);
+        }
+
+        decimal _GasDiesel;
+        public decimal GasDiesel
+        {
+            get => _GasDiesel;
+            set => SetProperty(ref _GasDiesel, value);
+        }
+
+        double _GasLatitud;
+        public double GasLatitud
+        {
+            get => _GasLatitud;
+            set => SetProperty(ref _GasLatitud, value);
+        }
+
+        double _GasLongitud;
+        public double GasLongitud
+        {
+            get => _GasLongitud;
+            set => SetProperty(ref _GasLongitud, value);
+        }
+
         //Comandos
         Command saveCommand;
         public Command SaveCommand => saveCommand ?? (saveCommand = new Command(SaveAction));
 
+        Command cancelCommand;
+        public Command CancelCommand => cancelCommand ?? (cancelCommand = new Command(CancelAction));
+
+        Command deleteCommand;
+        public Command DeleteCommand => deleteCommand ?? (deleteCommand = new Command(DeleteAction));
+
+        Command takePictureCommand;
+        public Command TakePictureCommand => takePictureCommand ?? (takePictureCommand = new Command(TakePictureActionAsync));
+
+        Command selectPictureCommand;
+        public Command SelectPictureCommand => selectPictureCommand ?? (selectPictureCommand = new Command(SelectPictureAction));
+
+        Command _GetLocationCommand;
+        public Command GetLocationCommand => _GetLocationCommand ?? (_GetLocationCommand = new Command(GetLocationAction));
+
+        Command _MapCommand;
+        public Command MapCommand => _MapCommand ?? (_MapCommand = new Command(MapAction));
+
+        //Acciones
         private async void SaveAction()
         {
+            GasSelected.Marca = GasMarca;
+            GasSelected.Sucursal = GasSucursal;
+            GasSelected.Foto = GasFoto;
+            GasSelected.GasVerde = GasVerde;
+            GasSelected.GasRojo = GasRojo;
+            GasSelected.Diesel = GasDiesel;
+            GasSelected.Latitud = GasLatitud;
+            GasSelected.Longitud = GasLongitud;
+
             await App.SQLiteDatabase.SaveGasAsync(GasSelected);
             GasListViewModel.GetInstance().LoadGas();
             await Application.Current.MainPage.Navigation.PopAsync();
         }
 
-        Command cancelCommand;
-        public Command CancelCommand => cancelCommand ?? (cancelCommand = new Command(CancelAction));
-
         private async void CancelAction()
         {
             await Application.Current.MainPage.Navigation.PopAsync();
         }
-
-        Command deleteCommand;
-        public Command DeleteCommand => deleteCommand ?? (deleteCommand = new Command(DeleteAction));
 
         private async void DeleteAction()
         {
@@ -63,18 +144,6 @@ namespace Examen_2p.ViewModels
             GasListViewModel.GetInstance().LoadGas();
             await Application.Current.MainPage.Navigation.PopAsync();
         }
-
-        Command takePictureCommand;
-        public Command TakePictureCommand => takePictureCommand ?? (takePictureCommand = new Command(TakePictureActionAsync));
-
-        Command _MapCommand;
-        public Command MapCommand => _MapCommand ?? (_MapCommand = new Command(MapAction));
-
-        Command _GetLocationCommand;
-        public Command GetLocationCommand => _GetLocationCommand ?? (_GetLocationCommand = new Command(GetLocationAction));
-
-        Command selectPictureCommand;
-        public Command SelectPictureCommand => selectPictureCommand ?? (selectPictureCommand = new Command(SelectPictureAction));
 
         private async void TakePictureActionAsync()
         {
@@ -138,13 +207,13 @@ namespace Examen_2p.ViewModels
         {
             try
             {
-                GasSelected.Latitud = GasSelected.Longitud = 0;
+                GasLatitud = GasLongitud = 0;
                 var location = await Geolocation.GetLastKnownLocationAsync();
                 if (location != null)
                 {
                     //Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
-                    GasSelected.Latitud = location.Latitude;
-                    GasSelected.Longitud = location.Longitude;
+                    GasLatitud = location.Latitude;
+                    GasLongitud = location.Longitude;
                 }
             }
             catch (FeatureNotSupportedException fnsEx)

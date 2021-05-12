@@ -7,7 +7,6 @@ namespace Examen_2p.Models
     {
         [PrimaryKey, AutoIncrement]
         public int id { get; set; }
-
         public string Marca { get; set; }
         public string Sucursal { get; set; }
         public string Foto { get; set; }

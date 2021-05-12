@@ -6,8 +6,8 @@ namespace Examen_2p.Triggers
     {
         protected override void Invoke(Entry sender)
         {
-            int n;
-            var isNumeric = int.TryParse(sender.Text, out n);
+            decimal n;
+            var isNumeric = decimal.TryParse(sender.Text, out n);
             if (string.IsNullOrWhiteSpace(sender.Text) || !isNumeric)
             {
                 sender.Text = ""; //texto anterior

@@ -30,17 +30,17 @@
                 <Label Text="Marca:"/>
                 <Entry 
                 Placeholder="Ingrese la marca..." 
-                Text="{Binding GasSelected.Marca}"/>
+                Text="{Binding GasMarca}"/>
                 <Label Text="Sucursal:"/>
                 <Entry 
                 Placeholder="Ingrese la sucursal..." 
-                Text="{Binding GasSelected.Sucursal}"/>
+                Text="{Binding GasSucursal}"/>
                 
                 <Label Text="Precio Gasolina Roja:"/>
                 <Entry 
                 Placeholder="Gasolina Roja" 
                 Keyboard="Numeric" 
-                Text="{Binding GasSelected.GasRojo}">
+                Text="{Binding GasRojo}">
                     <Entry.Triggers>
                         <EventTrigger
                         Event="TextChanged">
@@ -52,13 +52,13 @@
                 Increment="1"
                 Minimum="0"
                 Maximum="100"
-                Value="{Binding GasSelected.GasRojo}"/>
+                Value="{Binding GasRojo}"/>
 
                 <Label Text="Precio Gasolina Verde:"/>
                 <Entry 
                 Placeholder="Gasolina Verde" 
                 Keyboard="Numeric" 
-                Text="{Binding GasSelected.GasVerde}">
+                Text="{Binding GasVerde}">
                     <Entry.Triggers>
                         <EventTrigger
                         Event="TextChanged">
@@ -70,13 +70,13 @@
                 Increment="1"
                 Minimum="0"
                 Maximum="100"
-                Value="{Binding GasSelected.GasVerde}"/>
+                Value="{Binding GasVerde}"/>
 
                 <Label Text="Precio Diesel:"/>
                 <Entry 
                 Placeholder="Diesel" 
                 Keyboard="Numeric" 
-                Text="{Binding GasSelected.Diesel}">
+                Text="{Binding GasDiesel}">
                     <Entry.Triggers>
                         <EventTrigger
                         Event="TextChanged">
@@ -88,28 +88,28 @@
                 Increment="1"
                 Minimum="0"
                 Maximum="100"
-                Value="{Binding GasSelected.Diesel}"/>
+                Value="{Binding GasDiesel}"/>
 
                 <Entry
                 Placeholder="Latitud"
-                Text="{Binding GasSelected.Latitud}"/>
+                Text="{Binding GasLatitud}"/>
                 <Entry
                 Placeholder="Longitud"
-                Text="{Binding GasSelected.Longitud}"/>
+                Text="{Binding GasLongitud}"/>
                 
                 <Button
                 Text="Obtener coordenadas"
                 Command="{Binding GetLocationCommand}"/>
                 
                 <Image 
-                Source="{Binding GasSelected.Foto, Converter = {StaticResource ImageConverter}}" />
+                Source="{Binding GasFoto, Converter = {StaticResource ImageConverter}}" />
 
                 <Label Text="URL Imagen:"/>
                 <Entry 
                 Placeholder="Url Imagen" 
-                Text="{Binding PetPicture}" />
+                Text="{Binding GasFoto}" />
                 <Image 
-                Source="{Binding PetPicture, Converter = {StaticResource ImageConverter}}" />
+                Source="{Binding GasFoto, Converter = {StaticResource ImageConverter}}" />
                 <Button
                 Text="Tomar fotografía"
                 Command="{Binding TakePictureCommand}"/>
