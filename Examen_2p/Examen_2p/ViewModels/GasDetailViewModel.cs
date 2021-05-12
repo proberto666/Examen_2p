@@ -173,7 +173,7 @@ namespace Examen_2p.ViewModels
         {
             Application.Current.MainPage.Navigation.PushAsync(new GasMaps(new GasModel
             {
-                id = gasSelected.id,
+                Id = gasSelected.Id,
                 Marca = gasSelected.Marca,
                 Sucursal = gasSelected.Sucursal,
                 Foto = gasSelected.Foto,
