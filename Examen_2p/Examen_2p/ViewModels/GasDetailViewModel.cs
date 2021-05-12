@@ -20,6 +20,15 @@ namespace Examen_2p.ViewModels
         {
             GasSelected = gasSelected;
             ImageBase64 = gasSelected.Foto;
+
+            GasMarca = gasSelected.Marca;
+            GasSucursal = gasSelected.Sucursal;
+            GasFoto = gasSelected.Foto;
+            GasVerde = gasSelected.GasVerde;
+            GasRojo = gasSelected.GasRojo;
+            GasDiesel = gasSelected.Diesel;
+            GasLatitud = gasSelected.Latitud;
+            GasLongitud = gasSelected.Longitud;
         }
 
         public GasModel GasSelected
